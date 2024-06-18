@@ -1,22 +1,14 @@
 "use client";
 import { SocialIcon } from "react-social-icons";
-import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { Social } from "../typings";
 
-type Props = {};
+type Props = {
+  socials: Social[];
+};
 
-export default function Header({}: Props) {
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  if (!isClient) {
-    return null; // or return a simple static version of the component
-  }
-
+export default function Header({ socials }: Props) {
   return (
     <header className="sticky top-0 p-5 flex item-start justify-between max-w-7xl mx-auto z-20 xl:items-center">
       <motion.div
@@ -35,23 +27,17 @@ export default function Header({}: Props) {
         }}
         className="flex flex-row items-center"
       >
-        {/* Social Icons */}
-        <SocialIcon
-          url="https://www.youtube.com"
-          fgColor="gray"
-          bgColor="transparent"
-        />
-        <SocialIcon
-          url="https://www.instagram.com"
-          fgColor="gray"
-          bgColor="transparent"
-        />
-        <SocialIcon
-          url="https://www.gmail.com"
-          fgColor="gray"
-          bgColor="transparent"
-        />
-        <SocialIcon url="github" fgColor="gray" bgColor="transparent" />
+        {/*social icon start*/}
+        {socials &&
+          socials.map((social) => (
+            <SocialIcon
+              key={social._id}
+              url={social.url}
+              fgColor="gray"
+              bgColor="transparent"
+              // other props
+            />
+          ))}
       </motion.div>
 
       <Link href="#contact">
@@ -77,7 +63,9 @@ export default function Header({}: Props) {
             fgColor="gray"
             bgColor="transparent"
           />
-          <p className="uppercase hidden md:inline-flex text-m">Get in Touch</p>
+          <p className="uppercase hidden md:inline-flex text-m text-gray-400">
+            Get in Touch
+          </p>
         </motion.div>
       </Link>
     </header>

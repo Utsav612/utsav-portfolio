@@ -1,0 +1,29 @@
+/* Tailwind CSS configuration */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .heroButton {
+        @apply px-3 md:px-6 py-2 border border-[#F8F8F8] rounded-full uppercase text-xs tracking-wide text-gray-500 transition-all hover:border-[#68B2A0]/40 hover:text-[#68B2A0]/40;
+    }
+    .contactInput{
+        @apply outline-none bg-slate-400/20 rounded-lg border-b-2 px-6 py-3 md:py-4 text-gray-500 placeholder-gray-500 transition-all focus:border-[#68B2A0]/40 focus:text-[#68B2A0]/40 hover:border-[#68B2A0]/40;
+    }
+}
+
+
+/* Custom Scrollbar Styles */
+.scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+}
+  
+.scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: #4a4a4a; /* Customize this color */
+    border-radius: 10px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+    background-color: #e0e0e0; /* Customize this color */
+}
+

@@ -1,8 +1,12 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import { urlFor } from "../sanity";
+import { PageInfo } from "../typings";
 
-const About: React.FC = () => {
+type Props = { pageInfo: PageInfo };
+
+export default function About({ pageInfo }: Props) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -28,35 +32,20 @@ const About: React.FC = () => {
         }}
         viewport={{ once: true }}
         className="-mb-24 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-95 xl:w-[500px] xl:h-[600px]"
-        src="https://media.npr.org/assets/img/2013/05/06/tonystark_wide-92e2d9abcce4413d58f728f2b5f126cef71afd97.jpg"
+        src={urlFor(pageInfo?.profilePic).url()}
       />
 
-      <div className="space-y-10 px-0 md:px-10">
-        <h4 className="text-4xl font font-semibold">
+      <div className="space-y-5 md:space-y-10 px-0 md:px-10">
+        <h4 className="text-xl md:text-4xl font-semibold">
           Here is a{" "}
-          <span className="underline decoration-[#F7AB0A]/50">little</span>{" "}
+          <span className="underline decoration-[#68B2A0]/50">little</span>{" "}
           background
           {""}
         </h4>
-        <p className="text-base">
-          As a Web Development Graduate from Conestoga College, I am passionate
-          about creating cutting-edge web applications that deliver unparalleled
-          performance and user experience. I have a Master degree in information
-          technology and a Bachelor degree in computer science, demonstrating my
-          solid academic background and foundation in various programming
-          languages and frameworks. I have over three years of professional
-          experience as a senior web developer at Saurabh Web Solution, where I
-          spearheaded the development of a dynamic web application using C#,
-          ASP.NET Core, React, and JavaScript. I leveraged my expertise in
-          JavaScript, jQuery, HTML, CSS, UI/UX, AJAX, and React to enrich
-          client-side functionality and create immersive user interfaces.
-          Additionally, I designed and implemented RESTful APIs to facilitate
-          seamless integration with external systems, enhancing interoperability
-          and security.
+        <p className="text-m md:text-lg lg:text-xl text-justify">
+          {pageInfo?.backgroundInformation}
         </p>
       </div>
     </motion.div>
   );
-};
-
-export default About;
+}

@@ -1,11 +1,12 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import { urlFor } from "../sanity";
+import { Project } from "../typings";
 
-type Props = {};
+type Props = { projects: Project[] };
 
-function Projects({}: Props) {
-  const projects = [1, 2, 3, 4, 5];
+export default function Projects({ projects }: Props) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -17,42 +18,51 @@ function Projects({}: Props) {
         Projects
       </h3>
 
-      <motion.div className="relative w-full flex overflow-x-scroll snap-x snap-mandatory z-20 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
-        {projects.map((project, i) => (
+      <div className="relative w-full flex overflow-x-scroll snap-x snap-mandatory z-20 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#2C6975]/80">
+        {projects?.map((project, i) => (
           <div
-            key={project}
+            key={project._id}
             className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-10 md:p-20 h-screen"
           >
-            <img
-              className="h-80 w-auto object-contain animatedImg"
-              src="https://media.npr.org/assets/img/2013/05/06/tonystark_wide-92e2d9abcce4413d58f728f2b5f126cef71afd97.jpg"
+            <motion.img
+              initial={{ y: -300, opacity: 0 }}
+              transition={{ duration: 1.2 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className=" h-28 xl:h-80 md:h-72 object-contain"
+              src={urlFor(project?.image).url()}
               alt=""
             />
 
             <div className="space-y-5 md:space-y-10 px-0 md:px-10 max-w-6xl">
               <h4 className="text-2xl md:text-4xl font-semibold text-center">
-                <span className="underline decoration-[#F7AB0A]/50">
-                  Case Study {i + 1} of {projects.length} : {""}
-                </span>
-                Key logger (Safe Spy)
+                <span className="underline decoration-[#2C6975]/50">
+                  Case Study {i + 1} of {projects.length} :
+                </span>{" "}
+                {project?.title}
               </h4>
 
-              <p className="text-lg text-center md:text-left">
-                Our main objective here is to develop a Safe Spy that can
-                effectively monitor any computer or mobile device, record the
-                keystrokes made on it, and discreetly send this recorded data to
-                the user via email. Additionally, we are also focusing on the
-                capability to capture screenshots taken by the devices user,
-                providing comprehensive monitoring functionality.
+              <div className="flex items-center space-x-2 justify-center ">
+                {project?.technologies &&
+                  project.technologies.map((technology) => (
+                    <img
+                      key={technology._id}
+                      className="h-12 w-12 rounded-full object-cover"
+                      src={urlFor(technology?.image).url()}
+                      alt=""
+                    />
+                  ))}
+              </div>
+
+              <p className="text-m md:text-lg lg:text-xl text-justify ">
+                {project?.summary}
               </p>
             </div>
           </div>
         ))}
-      </motion.div>
+      </div>
 
-      <div className="w-full absolute top-[30%] bg-[#F7AB0A]/10 left-0 h-[500px] -skew-y-12"></div>
+      <div className="w-full absolute top-[20%] md:top-[30%] bg-[#2C6975]/40 left-0 h-[500px] -skew-y-12"></div>
     </motion.div>
   );
 }
-
-export default Projects;
