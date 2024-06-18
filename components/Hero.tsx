@@ -29,7 +29,7 @@ export default function Hero({ pageInfo }: Props) {
       <BackgroundCircle />
       {pageInfo.heroImage && (
         <img
-          className="relative rounded-full h-36 w-36 mx-auto object-cover"
+          className="relative rounded-full h-32 w-32 mx-auto object-cover"
           src={urlFor(pageInfo.heroImage).url()}
           alt={`${pageInfo.name}'s picture`}
         />
@@ -45,7 +45,7 @@ export default function Hero({ pageInfo }: Props) {
           <Cursor cursorColor="#68B2A0" />
         </h1>
 
-        <div className="pt-5">
+        <div className="text-m pt-5">
           <a href="#about">
             <button className="heroButton">About</button>
           </a>
@@ -57,6 +57,12 @@ export default function Hero({ pageInfo }: Props) {
           </Link>
           <Link href="#projects">
             <button className="heroButton">Projects</button>
+          </Link>
+          <Link
+            href="./Utsav_Frontend_WebDeveloper_.NetDeveloper_Resume.pdf"
+            target="_blank"
+          >
+            <button className="heroButton">Resume</button>
           </Link>
         </div>
       </div>
