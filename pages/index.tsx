@@ -3,7 +3,6 @@ import React from "react";
 import { HomeIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import Head from "next/head";
-import Image from "next/image";
 
 import Header from "../components/Header";
 import Hero from "../components/Hero";
@@ -18,12 +17,11 @@ import { fetchExperiences } from "../utils/fetchExperience";
 import { fetchProjects } from "../utils/fetchProjects";
 import { fetchSkills } from "../utils/fetchSkills";
 import { fetchSocials } from "../utils/fetchSocials";
-import Script from "next/script";
 
 import { Experience, PageInfo, Skill, Project, Social } from "../typings";
 
 type Props = {
-  pageInfo: PageInfo;
+  pageInfo: PageInfo | null;
   experiences: Experience[];
   skills: Skill[];
   projects: Project[];
@@ -31,9 +29,12 @@ type Props = {
 };
 
 const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
+  if (!pageInfo) {
+    return <div>Error loading data. Please try again later.</div>;
+  }
+
   return (
     <div className="bg-[#F8F8F8] text-black h-screen snap-y snap-mandatory overflow-y-scroll z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#68B2A0]/80">
-      {/* Header start */}
       <Head>
         <link
           rel="apple-touch-icon"
@@ -58,32 +59,26 @@ const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
 
       <Header socials={socials} />
 
-      {/* Hero */}
       <section id="hero" className="snap-start">
         <Hero pageInfo={pageInfo} />
       </section>
 
-      {/* About */}
       <section id="about" className="snap-center">
         <About pageInfo={pageInfo} />
       </section>
 
-      {/* Experience */}
       <section id="experience" className="snap-center">
         <WorkExperience experiences={experiences} />
       </section>
 
-      {/* Skills */}
       <section id="skills" className="snap-start">
         <Skills skills={skills} />
       </section>
 
-      {/* Projects */}
       <section id="projects" className="snap-start">
         <Projects projects={projects} />
       </section>
 
-      {/* Contact Us */}
       <section id="contact" className="snap-start">
         <ContactMe />
       </section>
@@ -104,20 +99,33 @@ const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const pageInfo = await fetchPageInfo();
-  const experiences = await fetchExperiences();
-  const skills = await fetchSkills();
-  const projects = await fetchProjects();
-  const socials = await fetchSocials();
+  try {
+    const pageInfo = await fetchPageInfo();
+    const experiences = await fetchExperiences();
+    const skills = await fetchSkills();
+    const projects = await fetchProjects();
+    const socials = await fetchSocials();
 
-  return {
-    props: {
-      pageInfo,
-      experiences,
-      skills,
-      projects,
-      socials,
-    },
-    revalidate: 10,
-  };
+    return {
+      props: {
+        pageInfo,
+        experiences,
+        skills,
+        projects,
+        socials,
+      },
+      revalidate: 10,
+    };
+  } catch (error) {
+    console.error("Error in getStaticProps:", error);
+    return {
+      props: {
+        pageInfo: null,
+        experiences: [],
+        skills: [],
+        projects: [],
+        socials: [],
+      },
+    };
+  }
 };
