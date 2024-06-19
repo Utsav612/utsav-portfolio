@@ -53,7 +53,7 @@ export default function Projects({ projects }: Props) {
                   ))}
               </div>
 
-              <p className="text-m md:text-lg lg:text-xl text-justify ">
+              <p className="text-sm md:text-md lg:text-lg text-justify  ">
                 {project?.summary}
               </p>
             </div>

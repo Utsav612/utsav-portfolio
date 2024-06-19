@@ -3,7 +3,8 @@ import React from "react";
 import { HomeIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import Head from "next/head";
-import Script from "next/script";
+import Image from "next/image";
+
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import About from "../components/About";
@@ -11,11 +12,14 @@ import WorkExperience from "../components/WorkExperience";
 import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import ContactMe from "../components/ContactMe";
+
 import { fetchPageInfo } from "../utils/fetchPageInfo";
 import { fetchExperiences } from "../utils/fetchExperience";
 import { fetchProjects } from "../utils/fetchProjects";
 import { fetchSkills } from "../utils/fetchSkills";
 import { fetchSocials } from "../utils/fetchSocials";
+import Script from "next/script";
+
 import { Experience, PageInfo, Skill, Project, Social } from "../typings";
 
 type Props = {
@@ -49,7 +53,7 @@ const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
           href="./favicon-16x16.png"
         />
         <link rel="manifest" href="./site.webmanifest" />
-        <title>{pageInfo.name} Portfolio</title>
+        <title>{"Utsav's Portfolio"}</title>
       </Head>
 
       <Header socials={socials} />
