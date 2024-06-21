@@ -22,7 +22,7 @@ const ContactMe: React.FC<Props> = () => {
     <div className="h-screen flex relative flex-col text-center md:text-left md:flex-row max-w-7xl px-5 justify-evenly mx-auto items-center">
       {" "}
       {/* Decreased padding */}
-      <h3 className="absolute top-28 md:top-20 uppercase tracking-[20px] text-gray-500 text-xl md:text-2xl">
+      <h3 className="absolute top-24 md:top-12 uppercase tracking-[20px] text-gray-500 text-xl md:text-2xl">
         {" "}
         {/* Decreased font size */}
         Contact

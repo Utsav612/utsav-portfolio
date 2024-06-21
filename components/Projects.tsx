@@ -13,7 +13,7 @@ export default function Projects({ projects }: Props) {
       transition={{ duration: 1.5 }}
       className="h-screen relative flex overflow-hidden flex-col text-left md:flex-row max-w-full justify-evenly mx-auto items-center z-0"
     >
-      <h3 className="absolute top-16 md:top-20 lg:top-26 uppercase tracking-[20px] text-gray-500 text-lg md:text-xl lg:text-2xl">
+      <h3 className="absolute top-16 md:top-12 lg:top-26 uppercase tracking-[20px] text-gray-500 text-lg md:text-xl lg:text-2xl">
         Projects
       </h3>
 
@@ -28,7 +28,7 @@ export default function Projects({ projects }: Props) {
               transition={{ duration: 1.2 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="h-40 w-auto md:h-72 lg:h-52 object-contain"
+              className="h-40 w-auto md:h-72 lg:h-48 object-contain"
               src={urlFor(project?.image).url()}
               alt={project?.title}
             />
