@@ -28,7 +28,7 @@ export default function Projects({ projects }: Props) {
               transition={{ duration: 1.2 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="h-auto max-h-72 w-full object-contain md:h-72"
+              className="h-40 w-auto md:h-72 object-contain"
               src={urlFor(project?.image).url()}
               alt={project?.title}
             />
@@ -61,7 +61,7 @@ export default function Projects({ projects }: Props) {
         ))}
       </div>
 
-      <div className="w-full absolute top-[30%] md:top-[30%] bg-[#2C6975]/40 left-0 h-[400px] md:h-[500px] -skew-y-12"></div>
+      <div className="w-full absolute top-[30%] md:top-[30%] bg-[#2C6975]/40 left-0 h-[0px] md:h-[500px] -skew-y-12"></div>
     </motion.div>
   );
 }
