@@ -7,7 +7,7 @@ type Props = { experience: Experience };
 
 const ExperienceCard: React.FC<Props> = ({ experience }: Props) => {
   return (
-    <article className="flex flex-col drop-shadow-xl rounded-lg items-center space-y-4 flex-shrink-0 w-[320px] sm:w-[400px] md:w-[600px] xl:w-[800px] snap-center bg-[#FFFFFF] bg-gradient-to-tr from-white to-[#2C6975]/20 p-4 cursor-pointer transition-opacity duration-200 overflow-hidden">
+    <article className=" xl:h-[450px] flex flex-col drop-shadow-xl rounded-lg items-center space-y-4 flex-shrink-0 w-[320px] sm:w-[400px] md:w-[770px]  snap-center bg-[#FFFFFF] bg-gradient-to-tr from-white to-[#2C6975]/20 p-4 cursor-pointer transition-opacity duration-200 overflow-hidden">
       <div className="px-4 md:px-6 w-full">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
           {/* Company Image for Mobile */}
@@ -64,7 +64,7 @@ const ExperienceCard: React.FC<Props> = ({ experience }: Props) => {
         </p>
       </div>
       {/* Points */}
-      <ul className="px-4 list-disc text-black space-y-2 text-justify ml-0 text-xs sm:text-sm md:text-base overflow-y-scroll scrollbar-thin scrollbar-track-black scrollbar-thumb-[#68B2A0]/80">
+      <ul className="px-4 list-disc text-black space-y-2 text-justify ml-0 text-xs sm:text-sm md:text-base scrollbar-thin scrollbar-track-black scrollbar-thumb-[#68B2A0]/80 overflow-y-auto max-h-[250px] md:max-h-[550px] lg:max-h-[450px]">
         {experience?.points.map((point, i) => <li key={i}>{point}</li>)}
       </ul>
     </article>
