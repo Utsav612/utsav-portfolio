@@ -32,7 +32,7 @@ export default function About({ pageInfo }: Props) {
           opacity: 1,
         }}
         viewport={{ once: true }}
-        className="-mb-24 md:mb-0 flex-shrink-0 w-52 h-52 rounded-full object-cover md:rounded-lg md:w-64 md:h-95 xl:w-[500px] xl:h-[600px]"
+        className="-mb-24 md:mb-0 flex-shrink-0 w-52 h-52 rounded-full object-cover md:rounded-lg md:w-64 md:h-95 xl:w-[400px] xl:h-[600px]"
         src={urlFor(pageInfo?.profilePic).url()}
       />
 
@@ -41,9 +41,8 @@ export default function About({ pageInfo }: Props) {
           Here is a{" "}
           <span className="underline decoration-[#68B2A0]/50">little</span>{" "}
           background
-          {""}
         </h4>
-        <p className="text-sm md:text-lg lg:text-lg text-justify">
+        <p className="text-xs md:text-lg lg:text-lg text-justify">
           {pageInfo?.backgroundInformation}
         </p>
       </div>

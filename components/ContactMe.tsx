@@ -24,27 +24,29 @@ const ContactMe: React.FC<Props> = () => {
         Contact
       </h3>
       <div className="flex flex-col space-y-4 md:space-y-5 lg:space-y-6 xl:space-y-6 2xl:space-y-10">
-        <h4 className="text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-semibold text-center">
+        <h4 className="text-lg md:text-xl lg:text-2xl 2xl:text-3xl font-semibold text-center">
           I have got what you need.{" "}
-          <span className="decoration-[#68B2A0]/50 underline">Lets Talk</span>
+          <span className="decoration-[#68B2A0]/50 underline">Lets Talk!</span>
         </h4>
 
-        <div className="space-y-1 md:space-y-3 lg:space-y-3 xl:space-y-3 2xl:space-y-5">
-          <div className="flex items-center space-x-5 justify-center">
-            <PhoneIcon className="text-[#68B2A0] h-7 w-7 animate-pulse" />
-            <p className="text-lg md:text-2xl lg:text-2xl">+1 (437)-974-0612</p>
+        <div className="space-y-1 md:space-y-2 lg:space-y-2 xl:space-y-2 2xl:space-y-3">
+          <div className="flex items-center space-x-3 justify-center">
+            <PhoneIcon className="text-[#68B2A0] h-6 w-6 md:h-7 md:w-7 animate-pulse" />
+            <p className="text-base md:text-lg lg:text-lg xl:text-lg">
+              +1 (437)-974-0612
+            </p>
           </div>
 
-          <div className="flex items-center space-x-5 justify-center">
-            <EnvelopeIcon className="text-[#68B2A0] h-7 w-7 animate-pulse" />
-            <p className="text-lg md:text-2xl lg:text-2xl">
+          <div className="flex items-center space-x-3 justify-center">
+            <EnvelopeIcon className="text-[#68B2A0] h-6 w-6 md:h-7 md:w-7 animate-pulse" />
+            <p className="text-base md:text-lg lg:text-lg xl:text-lg">
               putsav612@gmail.com
             </p>
           </div>
 
-          <div className="flex items-center space-x-5 justify-center">
-            <MapPinIcon className="text-[#68B2A0] h-7 w-7 animate-pulse" />
-            <p className="text-lg md:text-2xl lg:text-2xl">
+          <div className="flex items-center space-x-3 justify-center">
+            <MapPinIcon className="text-[#68B2A0] h-6 w-6 md:h-7 md:w-7 animate-pulse" />
+            <p className="text-base md:text-lg lg:text-lg xl:text-lg">
               Cambridge, Ontario
             </p>
           </div>
@@ -52,37 +54,33 @@ const ContactMe: React.FC<Props> = () => {
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col space-y-2 w-80 md:w-fit mx-auto"
+          className="flex flex-col space-y-2 md:space-y-3 lg:space-y-3 xl:space-y-3 2xl:space-y-4 w-full max-w-sm mx-auto"
         >
-          <div className="md:flex md:space-x-2 space-y-2 md:space-y-0">
-            <input
-              {...register("name", { required: true })}
-              placeholder="Name"
-              className="contactInput w-80 md:w-auto"
-              type="text"
-            />
-            <input
-              {...register("email", { required: true })}
-              placeholder="Email"
-              className="contactInput w-80 md:w-auto"
-              type="email"
-            />
-          </div>
-
+          <input
+            {...register("name", { required: true })}
+            placeholder="Name"
+            className="contactInput w-full px-4 py-3 rounded-md border-gray-300"
+            type="text"
+          />
+          <input
+            {...register("email", { required: true })}
+            placeholder="Email"
+            className="contactInput w-full px-4 py-3 rounded-md border-gray-300"
+            type="email"
+          />
           <input
             {...register("subject", { required: true })}
             placeholder="Subject"
-            className="contactInput"
+            className="contactInput w-full px-4 py-3 rounded-md border-gray-300"
             type="text"
           />
-
           <textarea
             {...register("message", { required: true })}
             placeholder="Message"
-            className="contactInput"
+            className="contactInput w-full px-4 py-3 rounded-md border-gray-300"
+            rows={4}
           />
-          <button className="bg-[#68B2A0] py-3 md:py-5 px-10 rounded-lg text-white font-bold text-lg">
-            {" "}
+          <button className="bg-[#68B2A0] py-3 md:py-4 px-6 md:px-8 rounded-lg text-white font-bold text-base md:text-lg w-full">
             Submit
           </button>
         </form>

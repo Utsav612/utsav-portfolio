@@ -54,7 +54,7 @@ const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
           href="./favicon-16x16.png"
         />
         <link rel="manifest" href="./site.webmanifest" />
-        <title>{"Utsav's Portfolio"}</title>
+        <title>{"Utsav Patel Portfolio"}</title>
       </Head>
 
       <Header socials={socials} />
@@ -84,11 +84,9 @@ const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
       </section>
 
       <Link href="#hero">
-        <footer className="sticky bottom-5 w-full cursor-pointer">
-          <div className="flex items-center justify-center">
-            <div className="h-10 w-10 bg-[#2C6975]/80 rounded-full flex items-center justify-center">
-              <HomeIcon className="h-7 w-7 pb-0.5 hover:grayscale-100 text-white animate-pulse" />
-            </div>
+        <footer className="sticky bottom-5 w-full cursor-pointer flex items-center justify-center">
+          <div className="h-10 w-10 bg-[#2C6975]/80 rounded-full flex items-center justify-center">
+            <HomeIcon className="h-7 w-7 pb-0.5 hover:grayscale-100 text-white animate-pulse" />
           </div>
         </footer>
       </Link>
