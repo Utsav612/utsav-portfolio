@@ -60,7 +60,7 @@ export default function Hero({ pageInfo }: Props) {
             <button className="heroButton">Projects</button>
           </Link>
           <Link
-            href="./Utsav_Frontend_WebDeveloper_.NetDeveloper_Resume.pdf"
+            href="./Utsav_FullStack_WebDeveloper_.NetDeveloper_Resume.pdf"
             target="_blank"
           >
             <button className="heroButton">Resume</button>
